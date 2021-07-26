@@ -32,7 +32,7 @@ public class GeneralFunctions {
 
 		capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
 		capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "10.0");
-		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "OnePlus");
+		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "OnePlus 6T");
 		capabilities.setCapability("appPackage", "com.coindcx");
 		capabilities.setCapability("appActivity", "com.coindcx.security.ScreenLock");
 		
