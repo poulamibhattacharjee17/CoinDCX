@@ -7,7 +7,6 @@ Device Used: Oneplus 6T (Real Device Automation, No emulator used)
 
 Framework Component Details: 
 
-
 src/main/java - 
 pom.xml: Contains all the dependencies used
 testngXML: Used for triggering the execution of the test scenario Classes
@@ -18,3 +17,5 @@ testScenario Package: Contains the two test scenario java classes with Total 3 t
 
 src/main/resources - 
 TestData.Properties: Properties file is used as testdata sheet.
+
+Device Configuration Handling: Device Configuration can be handled from the TestData.Properties through Desired Capabilities keys. User can change the values of capabilities to execute in a different device. 
