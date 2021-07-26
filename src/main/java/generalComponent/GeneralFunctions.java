@@ -24,17 +24,17 @@ public class GeneralFunctions {
 	public DesiredCapabilities capabilities = null;
 	public URL url = null;
 
-	public void initializeAndroidDriver() throws MalformedURLException {
+	public void initializeAndroidDriver() throws IOException {
 
 		final String URL_STRING = "http://127.0.0.1:4723/wd/hub";
 		url = new URL(URL_STRING);
 		capabilities = new DesiredCapabilities();
 
-		capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-		capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "10.0");
-		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "OnePlus6T");
-		capabilities.setCapability("appPackage", "com.coindcx");
-		capabilities.setCapability("appActivity", "com.coindcx.security.ScreenLock");
+		capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, getData("PlatformName"));
+		capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, getData("PlatformVersion"));
+		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, getData("DeviceName"));
+		capabilities.setCapability("appPackage", getData("appPackage"));
+		capabilities.setCapability("appActivity", getData("appActivity"));
 		
 		
 
