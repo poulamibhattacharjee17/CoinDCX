@@ -1,15 +1,11 @@
 package generalComponent;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Properties;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.By.ById;
-import org.openqa.selenium.By.ByXPath;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -24,6 +20,9 @@ public class GeneralFunctions {
 	public DesiredCapabilities capabilities = null;
 	public URL url = null;
 
+	/**
+	 * @throws IOException
+	 */
 	public void initializeAndroidDriver() throws IOException {
 
 		final String URL_STRING = "http://127.0.0.1:4723/wd/hub";
@@ -35,13 +34,16 @@ public class GeneralFunctions {
 		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, getData("DeviceName"));
 		capabilities.setCapability("appPackage", getData("appPackage"));
 		capabilities.setCapability("appActivity", getData("appActivity"));
-		
-		
-
+	
 		driver = new AndroidDriver<MobileElement>(url, capabilities);
 
 	}
 
+	/**
+	 * @param key
+	 * @return
+	 * @throws IOException
+	 */
 	public String getData(String key) throws IOException {
 		FileReader reader = new FileReader(
 				System.getProperty("user.dir") + "\\src\\main\\resources\\TestData\\TestData.properties");
@@ -53,18 +55,30 @@ public class GeneralFunctions {
 
 	}
 
+	/**
+	 * @param id
+	 * @return
+	 */
 	public boolean waitUntilDisplayedWithId(String id) {
 		WebDriverWait wait = new WebDriverWait(driver, 60);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(id)));
 		return true;
 	}
 
+	/**
+	 * @param xpath
+	 * @return
+	 */
 	public boolean waitUntilDisplayedWithXpath(String xpath) {
 		WebDriverWait wait = new WebDriverWait(driver, 60);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
 		return true;
 	}
 
+	/**
+	 * @param accessibilityId
+	 * @return
+	 */
 	public boolean waitUntilDisplayedWithAccesibilityId(String accessibilityId) {
 		WebDriverWait wait = new WebDriverWait(driver, 60);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(accessibilityId)));
